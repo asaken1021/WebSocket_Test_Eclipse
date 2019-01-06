@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+C:\Users\asaken1021\Eclipse Workspaces\WebSocket_Test\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+597030406.index
+2169479993.index
+2501520862.index
+1111729954.index
+1840840395.index
+3348514930.index

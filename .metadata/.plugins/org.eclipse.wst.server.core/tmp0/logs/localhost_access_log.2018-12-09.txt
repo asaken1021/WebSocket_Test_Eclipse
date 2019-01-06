@@ -1,0 +1,9 @@
+127.0.0.1 - - [09/Dec/2018:15:36:04 +0900] "GET / HTTP/1.1" 404 1107
+0:0:0:0:0:0:0:1 - - [09/Dec/2018:15:36:05 +0900] "GET /Server/WEB-INF/classes/net/asaken1021/websocket_testserver/Server.java HTTP/1.1" 404 1072
+127.0.0.1 - - [09/Dec/2018:15:36:48 +0900] "GET /Server/endpoint HTTP/1.1" 101 -
+127.0.0.1 - - [09/Dec/2018:15:38:56 +0900] "GET / HTTP/1.1" 404 1107
+0:0:0:0:0:0:0:1 - - [09/Dec/2018:15:38:56 +0900] "GET /Server/WEB-INF/classes/net/asaken1021/websocket_testserver/Server.java HTTP/1.1" 404 1072
+127.0.0.1 - - [09/Dec/2018:15:39:03 +0900] "GET /Server/endpoint HTTP/1.1" 101 -
+127.0.0.1 - - [09/Dec/2018:15:40:55 +0900] "GET /Server/endpoint HTTP/1.1" 101 -
+127.0.0.1 - - [09/Dec/2018:15:41:16 +0900] "GET / HTTP/1.1" 404 1107
+0:0:0:0:0:0:0:1 - - [09/Dec/2018:15:41:16 +0900] "GET /Server/WEB-INF/classes/net/asaken1021/websocket_testserver/Server.java HTTP/1.1" 404 1072

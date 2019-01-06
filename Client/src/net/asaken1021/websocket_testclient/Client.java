@@ -1,0 +1,75 @@
+package net.asaken1021.websocket_testclient;
+
+import java.net.URI;
+import java.util.Scanner;
+
+import javax.websocket.*;
+
+@ClientEndpoint
+public class Client {
+
+	public static String ver = "1.2.0";
+	public static WebSocketContainer container = null;
+	public static Scanner scanner = null;
+	public static String dest = null;
+	public static String text = null;
+	public static URI uri = null;
+	public static Session session = null;
+
+	public Client() {
+		super();
+	}
+
+	@OnOpen
+	public void onOpen(Session session) {
+		System.out.println("セッション確立");
+	}
+
+	@OnMessage
+	public String onMessage(String Message) {
+//		System.out.println("メッセージ受信: \"" + Message + "\"");
+		return Message;
+	}
+
+	@OnClose
+	public void onClose(Session session) {
+		System.out.println("セッション切断");
+	}
+	
+	@OnError
+	public void OnError(Session session, Throwable th) {
+		System.out.println("セッションエラー: " + th.getLocalizedMessage());
+	}
+
+	public static void main(String[] agrs) throws Exception {
+		container = ContainerProvider.getWebSocketContainer();
+		scanner = new Scanner(System.in);
+		System.out.println("WebSocket クライアント v" + ver);
+		System.out.print("\r\nエンドポイントアドレス>");
+		dest = scanner.nextLine();
+
+		if (dest.equals("dev")) {
+			uri = URI.create("ws://localhost:8080/Server/endpoint");
+		} else {
+			uri = URI.create(dest);
+		}
+
+		try {
+			session = container.connectToServer(new Client(), uri);
+		} catch (javax.websocket.DeploymentException e) {
+			System.out.println("WebSocket セッション確立失敗。終了します。");
+			return;
+		}
+		
+		System.out.print(">");
+		text = scanner.nextLine();
+		if (text.equals("/exit")) {
+			session.close();
+			return;
+		}
+		session.getBasicRemote().sendText(text);
+		
+		System.out.println("");
+		session.close();
+	}
+}
